@@ -9,8 +9,7 @@ func findMedianSortedArrays(nums1 []int, nums2 []int)  float64{
     nums1 = append(nums1, nums2...)
 	sort.Ints(nums1)
 	if len(nums1)%2 == 0 {
-		left := 0
-		right := len(nums1)-1
+		left,right := 0,len(nums1)-1
 		for{
 			if left == right-1 {
 				break
@@ -22,8 +21,7 @@ func findMedianSortedArrays(nums1 []int, nums2 []int)  float64{
 		
 		return float64(b/2)
 	}else{
-		left := 0
-		right := len(nums1)-1
+		left,right := 0,len(nums1)-1
 		for{
 			if left == right {
 				break
