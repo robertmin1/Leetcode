@@ -5,9 +5,10 @@ func searchInsert(nums []int, target int) int {
     for key,value:=range(nums){
 		if value == target {
 			return key
-		}else if target>value && target<nums[key+1]{
-            return key+1
+        }else if value>target{
+            return key
         }
-	}
+        }
     return 0
-}
+	}
+    
