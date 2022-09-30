@@ -3,12 +3,11 @@ func searchInsert(nums []int, target int) int {
         return len(nums)
     }
     for key,value:=range(nums){
-		if value == target {
+		if value == target || value>target {
 			return key
-        }else if value>target{
-            return key
         }
-        }
-    return 0
+    
 	}
+    return 0
+}
     
