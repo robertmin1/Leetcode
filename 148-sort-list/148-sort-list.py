@@ -5,11 +5,10 @@
 #         self.next = next
 class Solution:
     def sortList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        i = head
         lis = []
-        while i:
-            lis.append(i.val)
-            i = i.next
+        while head:
+            lis.append(head.val)
+            head = head.next
         lis = sorted(lis)
         dummy = ListNode(0)
         ptn = dummy
