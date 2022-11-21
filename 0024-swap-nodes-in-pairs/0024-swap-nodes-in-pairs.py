@@ -7,17 +7,18 @@ class Solution:
     def swapPairs(self, head: Optional[ListNode]) -> Optional[ListNode]:
         dummy = ListNode(0, head)
         prev, curr = dummy, head
-
+        
         while curr and curr.next:
-            nxtPair = curr.next.next
+            
+            NxtPair = curr.next.next
             second = curr.next
-
-
+            
             second.next = curr
-            curr.next = nxtPair
+            curr.next = NxtPair
             prev.next = second
-
+            
             prev = curr
-            curr = nxtPair
-
+            curr = NxtPair
+            
         return dummy.next
+            
