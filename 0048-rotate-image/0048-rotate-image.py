@@ -7,6 +7,5 @@ class Solution:
         matrix.reverse()
         for r in range(N):
             for c in range(r):
-                print(r,c)
                 matrix[r][c], matrix[c][r] = matrix[c][r], matrix[r][c]
                 
