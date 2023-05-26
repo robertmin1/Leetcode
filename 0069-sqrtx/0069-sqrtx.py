@@ -9,12 +9,10 @@ class Solution:
             mid = (start + end )//2
             if mid*mid == x:
                 return mid
-            if mid*mid > x:
+            elif mid*mid > x:
                 end = mid -1
             elif mid*mid < x:
                 start = mid + 1
-            else:
-                mid
+
         return end
             
-                
