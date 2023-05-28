@@ -20,46 +20,46 @@ class Solution:
             else:
                 start = mid+1
         
-        temp = self.binarysearch(target,mountain_arr,start)
-        return temp if temp != -1 else self.orderagbinary(target,mountain_arr,start)
+        temp = self.binarysearch(target,mountain_arr,start, True)
+        return temp if temp != -1 else self.binarysearch(target,mountain_arr,start, False)
                 
         
         
         
         
-    def binarysearch(self, target: int, mountain_arr: 'MountainArray', peak):
-        start = 0
-        end = peak
-        
-        while start <= end:
-            mid = start + (end-start)//2
-            
-            if mountain_arr.get(mid) > target:
-                  end = mid-1
-            elif mountain_arr.get(mid) < target:
-                start = mid+1
-            else:
-                ans = mid
-                return ans 
-            
-        return -1
-    def orderagbinary(self, target: int, mountain_arr: 'MountainArray', peak):
-        start = peak+1
-        end = mountain_arr.length() - 1
-        
-        while start <= end:
-            mid = start + (end-start)//2
-            
-            if mountain_arr.get(mid) > target:
+    def binarysearch(self, target: int, mountain_arr: 'MountainArray', peak, order:bool):
+        if order:
+            start = 0
+            end = peak
+
+            while start <= end:
+                mid = start + (end-start)//2
+
+                if mountain_arr.get(mid) > target:
+                      end = mid-1
+                elif mountain_arr.get(mid) < target:
                     start = mid+1
-            elif mountain_arr.get(mid) < target:
-                end = mid-1
-            else:
-                ans = mid
-                return ans 
-            
-        return -1
-        
+                else:
+                    ans = mid
+                    return ans 
+
+            return -1
+        else:
+            start = peak+1
+            end = mountain_arr.length() - 1
+
+            while start <= end:
+                mid = start + (end-start)//2
+
+                if mountain_arr.get(mid) > target:
+                        start = mid+1
+                elif mountain_arr.get(mid) < target:
+                    end = mid-1
+                else:
+                    ans = mid
+                    return ans 
+
+            return -1
         
         
         
