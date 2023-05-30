@@ -7,7 +7,7 @@ class Solution:
         elif nums[peaknum] == target:
             return peaknum
         
-        return self.binary(nums, 0, peaknum,target) if target >= nums[0] else self.binary(nums,peaknum+1,len(nums)-1,target)
+        return self.binary(nums, 0, peaknum-1,target) if target >= nums[0] else self.binary(nums,peaknum+1,len(nums)-1,target)
         
     
     def binary(self, nums, start, end,target):
