@@ -2,7 +2,6 @@ class Solution:
     def search(self, nums: List[int], target: int) -> int:
         peaknum = self.peak(nums)
         
-        
         if peaknum == None:
             return(self.binary(nums, 0, len(nums)-1, target))
         elif nums[peaknum] == target:
@@ -39,6 +38,3 @@ class Solution:
                 start =  mid+1
             else:
                 end = mid-1
-         
-            
-        
