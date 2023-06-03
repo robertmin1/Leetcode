@@ -1,14 +1,8 @@
 class Solution:
     def findMin(self, nums: List[int]) -> int:
-        start = 0
-        end = len(nums)-1
-        
         peak = self.Peak(nums)
         
-        if peak == end:
-            return nums[start]
-        else:
-            return nums[peak+1]
+        return nums[peak+1]
             
     def Peak(self, nums) -> int:
         start = 0
