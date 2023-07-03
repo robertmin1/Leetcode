@@ -5,7 +5,7 @@ class Solution:
         """
         curr, length = 1, len(nums)
         while curr < length:
-            for num in range(length-1):
+            for num in range(length-curr):
                 if nums[num] > nums[num+1]:
                     temp = nums[num+1]
                     nums[num+1] = nums[num]
