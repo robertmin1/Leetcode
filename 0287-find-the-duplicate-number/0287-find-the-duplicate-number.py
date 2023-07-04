@@ -7,7 +7,6 @@ class Solution:
                 self.swap(nums, i, correct)
             else:
                 i += 1
-        print(nums)
 
         return self.check(nums)
 
