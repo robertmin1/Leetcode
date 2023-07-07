@@ -21,4 +21,3 @@ class Solution:
             curr = NxtPair
             
         return dummy.next
-            
