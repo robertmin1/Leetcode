@@ -10,7 +10,6 @@ class Solution:
                    for pos_col,num in enumerate(m):
                     print(pos_row,pos_col)
                     if num == 0:
-                        print(pos_row,pos_col)
                         vars.append([pos_row, pos_col])
 
 
