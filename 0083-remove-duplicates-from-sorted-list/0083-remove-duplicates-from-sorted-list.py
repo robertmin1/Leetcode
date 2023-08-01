@@ -7,11 +7,14 @@ class ListNode:
 class Solution:
     def deleteDuplicates(self, head: [ListNode]) -> [ListNode]:
         dummylist = []
-        while head:
-            dummylist.append(head.val)
-            head = head.next
+        curr = head
 
-        dummylist = sorted(set(dummylist))
+        while curr:
+            dummylist.append(curr.val)
+            curr = curr.next
+
+        dummylist = sorted(list(set(dummylist)))
+
         dummy = ListNode(0)
         head = dummy
 
