@@ -21,10 +21,8 @@ class Solution:
             l+=1
         
         for num in rev:
-            print(num)
-            if curr:
-                curr.val = num
-                curr = curr.next
+            curr.val = num
+            curr = curr.next
         
         return head
                 
