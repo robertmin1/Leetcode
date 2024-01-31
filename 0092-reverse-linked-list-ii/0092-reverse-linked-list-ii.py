@@ -24,6 +24,4 @@ class Solution:
             curr.val = num
             curr = curr.next
         
-        return head
-                
-                    
+        return head  
