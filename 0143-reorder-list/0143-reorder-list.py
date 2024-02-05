@@ -1,52 +1,49 @@
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
-
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
 class Solution:
-    def hasCycle(self, head):
-        slow = fast = head
-        while fast and fast.next:
-            slow = slow.next
-            fast = fast.next.next
-            if slow == fast:
-                return True
-        return False
-
-    def findMid(self, head):
-        slow = fast = head
-        while fast.next and fast.next.next:
-            slow = slow.next
-            fast = fast.next.next
-        return slow
-
-    def reverse(self, head):
-        prev = None
-        while head:
-            next_node = head.next
-            head.next = prev
-            prev = head
-            head = next_node
-        return prev
-
-    def reorderList(self, head):
-        if not head or not head.next or self.hasCycle(head):
+    def reorderList(self, head: Optional[ListNode]) -> None:
+        """
+        Do not return anything, modify head in-place instead.
+        """
+        if head.next is None:
             return
-
-        mid = self.findMid(head)
+        
+        def findMid(head):
+            f = s = head
+            while f and f.next:
+                f = f.next.next
+                s = s.next
+            return s
+        def reverse(head):
+            if not head or not head.next:
+                return head
+            prev = None
+            current = head
+            nex = head.next      
+            while current:
+                current.next = prev
+                prev =current
+                current = nex
+                if nex:
+                    nex = nex.next
+            return prev
+        
+        mid = findMid(head)
         head1 = head
-        head2 = self.reverse(mid.next)
+        head2 = reverse(mid.next)
         mid.next = None
-
-        while head1 and head2:
-            temp1, temp2 = head1.next, head2.next
+        
+        while head1 is not None and head2 is not None:
+            temp = head1.next
             head1.next = head2
-            head2.next = temp1
-            head1, head2 = temp1, temp2
-
-# Example usage
-# list_head = ListNode(1, ListNode(2, ListNode(3, ListNode(4))))
-# Solution().reorderList(list_head)
-# while list_head:
-#     print(list_head.val)
-#     list_head = list_head.next
+            head1 = temp
+            
+            temp = head2.next
+            head2.next = head1
+            head2 = temp
+        
+        return head
+                
